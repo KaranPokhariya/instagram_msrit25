@@ -18,10 +18,11 @@ for filename in os.listdir(directory):
       with open(f, mode='r') as file:
         csvFile = csv.reader(file)
         for lines in csvFile:
-          if lines[1] in count:
-            count[lines[1]] += 1
-          else:
-            count[lines[1]] = 1
+          if len(lines) > 1:
+            if lines[1] in count:
+              count[lines[1]] += 1
+            else:
+              count[lines[1]] = 1
 
 count=[(x,y) for x,y in count.items()]
 
